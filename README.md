@@ -1,45 +1,47 @@
-# @adrianhurt/package-vue-canvas
+# vue-route-values
 
-A simple template for a VueJs package with:
+A set of simple components to manage route and query params using Vue Router.
 
--   [Prettier](https://prettier.io)
--   [ESLint](https://eslint.org)
--   [Airbnb Style Guide](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
--   [Jest](https://jestjs.io)
--   [Husky](https://github.com/typicode/husky) for git hooks
--   [Commitlint](https://commitlint.js.org) (to ensure [Conventional Commits](https://www.conventionalcommits.org))
+# Documentation
+
+Please, check the [documentation page here](https://adrianhurt.github.io/vue-route-values/).
+And here [some live examples](https://adrianhurt.github.io/vue-route-values-examples/).
 
 ## Install
 
 ```
-$ npm install @adrianhurt/package-vue-canvas
+yarn add vue-route-values
 ```
-
 or
-
 ```
-$ yarn add @adrianhurt/package-vue-canvas
+npm install vue-route-values --save
 ```
 
-## Usage
+And that's all! Here you have a simple usage example.
 
-```js
+```vue
 <template>
-    <div id="app">
-        <SlipperyButton />
-    </div>
+    <RouteQueryValue
+        #default="{ value, set }"
+        :encode="x => String(x)"
+        :decode="x => Number(x)"
+        name="page"
+        :defaultValue="1"
+    >
+        <div class="paginator">
+            <a @click="set(value - 1)">prev</a>
+            <div>{{ value }}</div>
+            <a @click="set(value + 1)">next</a>
+        </div>
+    </RouteQueryValue>
 </template>
 
 <script>
-import SlipperyButton from '@adrianhurt/package-vue-canvas'
+import { RouteQueryValue } from 'vue-route-values'
 
 export default {
-    name: 'App',
-    components: { SlipperyButton },
+    name: 'RouteQueryValueExample',
+    components: { RouteQueryValue },
 }
 </script>
-
-<style lang="scss">
-@import '~@adrianhurt/package-vue-canvas/dist/package-vue-canvas.css';
-</style>
 ```

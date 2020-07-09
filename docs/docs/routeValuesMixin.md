@@ -32,6 +32,7 @@ As you can see, the _OPTIONS_ object is very similar than the regular props of `
 | ------------------------------------- | --------- | ------------- | ---- |
 | **`where`**							| String	| `"query"`		| It could be `"params"` or `"query"`. |
 | **`name`**							| String	| *Required*	| The name you will use for the value. |
+| **`urlName`**							| String	| name's value	| The name of the route param or query param within URL. By default it uses the same as `name`. |
 | **`urlName`**							| String	| *Required*	| The name of the route param or query param within URL. |
 | **`defaultValue`**					| *any*		| `undefined`	| The default value. If current `value` is equal to `defaultValue` it will be removed from the URL. |
 | **`type`**							| String	| `string`		| The value's type to automatically encode/decode from string. The possible values are `"string"`, `"number"` or `"boolean"`. |
@@ -65,8 +66,8 @@ export default {
     components: { Paginator, SelectInput },
     mixins: [routeValuesMixin([
         { where: 'params', name: 'slug' },
-        { name: 'page', type: 'number', defaultValue: 1 },
-        { name: 'sort', defaultValue: 'option1' },
+        { name: 'page', urlName: 'p', type: 'number', defaultValue: 1 },
+        { name: 'sort', urlName: 's', defaultValue: 'option1' },
     ])],
     created () {
         this.sortOptions = [

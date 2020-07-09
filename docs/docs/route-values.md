@@ -29,7 +29,7 @@ As you can see, the _OPTIONS_ object is very similar than the regular props of `
 | _OPTIONS_ fields         				| Type      | Default		| Description |
 | ------------------------------------- | --------- | ------------- | ---- |
 | **`where`**							| String	| `"query"`		| It could be `"params"` or `"query"`. |
-| **`urlName`**							| String	| *Required*	| The name of the route param or query param within URL. |
+| **`urlName`**							| String	| key's name	| The name of the route param or query param within URL. By default it uses the corresponding _key's_ name (i.e. the param's name). |
 | **`defaultValue`**					| *any*		| `undefined`	| The default value. If current `value` is equal to `defaultValue` it will be removed from the URL. |
 | **`type`**							| String	| `string`		| The value's type to automatically encode/decode from string. The possible values are `"string"`, `"number"` or `"boolean"`. |
 | **`encode(value)`**					| Function	| `undefined` 	| The encode funtion from the route string value (`Any => String`). If it's present the `type` prop is ignored. |
